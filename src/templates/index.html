@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV Converter</title>
+    <title>Parqet to Portfolio Performance \nCSV Converter</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <div class="container">
-        <h1>CSV Converter</h1>
+<div class="container">
+    <img src="{{ url_for('static', filename='csv_converter_logo.png') }}" alt="Company Logo" class="logo" />
+        <h1>Parqet to Portfolio Performance CSV Converter</h1>
         <form action="/convert" method="post" enctype="multipart/form-data" class="upload-form">
             <input type="file" name="file" id="file-upload" class="file-upload">
             <label for="file-upload" class="file-label">Choose a file</label>

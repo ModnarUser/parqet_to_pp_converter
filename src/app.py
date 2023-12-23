@@ -1,7 +1,7 @@
-from flask import Flask, request, send_file, render_template, redirect, url_for
+from flask import Flask, request, send_file, render_template, redirect, url_for, make_response
 import pandas as pd
 from io import BytesIO
-from convert_csv import transform_data
+from convert_csv import transform_data  # Make sure this import matches your file structure
 
 app = Flask(__name__)
 
@@ -22,13 +22,17 @@ def convert():
         input_df = pd.read_csv(file.stream, delimiter=';')
         transformed_df = transform_data(input_df)
 
-        # Convert DataFrame to CSV and send as file
+        # Convert DataFrame to CSV
         stream = BytesIO()
         transformed_df.to_csv(stream, index=False, sep=';', encoding='iso-8859-1')
         stream.seek(0)
-        return send_file(stream, as_attachment=True, attachment_filename='converted.csv')
 
-    return send_file(stream, as_attachment=True, attachment_filename='converted.csv')
+        # Create a response and set a cookie
+        response = make_response(send_file(stream, as_attachment=True, attachment_filename='converted.csv'))
+        response.set_cookie('fileDownload', 'true', max_age=60)  # Set a cookie for 60 seconds
+        return response
+
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

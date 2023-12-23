@@ -50,6 +50,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+.logo {
+    max-width: 150px; /* Adjust the size as needed */
+    margin-bottom: 20px;
+}
 
 .convert-button:hover {
     background-color: #007ba7;
