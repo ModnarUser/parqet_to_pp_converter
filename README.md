@@ -12,3 +12,11 @@ pip install -r requirements.txt
 cd src
 python app.py
 ```
+
+# Buildung an Executable
+
+```powershell
+cd src
+pyinstaller --add-data "templates;templates" --add-data "static;static" --hidden-import=flask --onefile app.py 
+--icon=csv_converter_logo.ico
+```

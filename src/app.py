@@ -1,5 +1,6 @@
 from flask import Flask, request, send_file, render_template, redirect, url_for, make_response
 import pandas as pd
+import webbrowser
 from io import BytesIO
 from convert_csv import transform_data  # Make sure this import matches your file structure
 
@@ -35,4 +36,9 @@ def convert():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
+
+    url = 'http://127.0.0.1:5000'
+    webbrowser.open(url)
     app.run(debug=True)
+
+

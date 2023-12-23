@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     convertButton.textContent = 'Done';
                     clearInterval(checkDownloadCookie);
                 }
-            }, 1000); // Check every second
+            }, 1000);
         } else {
             event.preventDefault(); // Prevent form submission if no file is selected
             alert('Please select a file to convert.');

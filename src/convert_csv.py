@@ -16,7 +16,7 @@ def map_type_to_german(type_value):
         'Dividend': 'Dividende'
         # Add more mappings if necessary
     }
-    return mapping.get(type_value, type_value)  # Default to original value if no mapping found
+    return mapping.get(type_value, type_value)
 
 def transform_data(input_df):
     columns = ['Datum', 'Typ', 'Wert', 'Buchungswährung', 'Bruttobetrag', 'Währung Bruttobetrag', 'Wechselkurs', 'Gebühren', 'Steuern', 'Stück', 'ISIN', 'WKN', 'Ticker-Symbol', 'Wertpapiername', 'Notiz']
