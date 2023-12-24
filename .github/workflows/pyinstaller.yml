@@ -1,3 +1,7 @@
+name: Pyinstaller
+
+on: [push]
+
 jobs:
   pyinstaller-build:
     runs-on: <windows-latest>
