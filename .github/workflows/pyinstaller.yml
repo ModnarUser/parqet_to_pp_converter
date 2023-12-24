@@ -1,14 +1,12 @@
-  - name: PyInstaller Windows
-  # You may pin to the exact commit or the version.
-  # uses: JackMcKew/pyinstaller-action-windows@a8dee21ad01bbc7e7363d445bb632691b95ba057
-  uses: JackMcKew/pyinstaller-action-windows@v0.1.2
-  with:
-    # Directory containing source code (optional requirements.txt).
-    path: # default is src
-    # Specify a custom URL for PYPI
-    pypi_url: # optional, default is https://pypi.python.org/
-    # Specify a custom URL for PYPI Index
-    pypi_index_url: # optional, default is https://pypi.python.org/simple
-    # Specify a file path for .spec file
-    spec: # optional, default is 
-          
+jobs:
+  pyinstaller-build:
+    runs-on: <windows-latest>
+    steps:
+      - name: Create Executable
+        uses: sayyid5416/pyinstaller@v1
+        with:
+          python_ver: '3.8'
+          spec: 'src/app.py'
+          requirements: 'src/requirements.txt'
+          upload_exe_with_name: 'parqet_to_pp_converter'
+          options: --onefile, --name "parqet_to_pp_converter", --windowed, --add-data "templates;templates", --add-data "static;static", --hidden-import=flask, --icon=csv_converter_logo.ico
