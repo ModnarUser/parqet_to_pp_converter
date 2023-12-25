@@ -13,4 +13,4 @@ jobs:
           spec: 'src/app.py'
           requirements: 'requirements.txt'
           upload_exe_with_name: 'parqet_to_pp_converter'
-          options: --onefile, --name "parqet_to_pp_converter", --windowed, --add-data "templates;templates", --add-data "static;static", --hidden-import=flask, --icon=csv_converter_logo.ico
+          options: --onefile, --name "parqet_to_pp_converter", --windowed, --add-data "templates;src/templates", --add-data "static;src/static", --hidden-import=flask, --icon=src/csv_converter_logo.ico
