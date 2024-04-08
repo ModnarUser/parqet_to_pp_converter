@@ -29,7 +29,7 @@ def convert():
         stream.seek(0)
 
         # Create a response and set a cookie
-        response = make_response(send_file(stream, as_attachment=True, attachment_filename='converted.csv'))
+        response = make_response(send_file(stream, as_attachment=True, download_name='converted.csv'))
         response.set_cookie('fileDownload', 'true', max_age=60)  # Set a cookie for 60 seconds
         return response
 

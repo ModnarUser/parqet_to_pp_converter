@@ -27,7 +27,7 @@ def transform_data(input_df):
         parsed_date = parser.parse(row['datetime'])
         datum = parsed_date.strftime('%Y-%m-%dT%H:%M')
 
-        output_df = output_df.append({
+        output_df = pd.concat([output_df, pd.DataFrame([{
             'Datum': datum,
             'Typ': map_type_to_german(row['type']),
             'Wert': convert_to_german_format(row['amount']),
@@ -43,7 +43,7 @@ def transform_data(input_df):
             'Ticker-Symbol': '',
             'Wertpapiername': row['holdingname'],
             'Notiz': ''  
-        }, ignore_index=True)
+        }])], ignore_index=True)
 
     return output_df
 
